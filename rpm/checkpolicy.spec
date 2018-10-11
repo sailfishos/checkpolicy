@@ -23,15 +23,18 @@
 %define libselinuxver 2.8
 %define libsepolver 2.8
 
-Summary: SELinux policy compiler
-Name: checkpolicy
-Version: 2.8
-Release: 1%{?dist}
-License: GPLv2
-Source: %{name}-%{version}.tar.bz2
-#Conflicts: selinux-policy-base < 3.13.1-138
+Summary:       SELinux policy compiler
+Name:          checkpolicy
+Version:       2.8
+Release:       1%{?dist}
+License:       GPLv2
+Source:        %{name}-%{version}.tar.bz2
 BuildRequires: gcc
-BuildRequires: byacc bison flex libsepol-static >= %{libsepolver} libselinux-devel  >= %{libselinuxver} 
+BuildRequires: byacc
+BuildRequires: bison
+BuildRequires: flex
+BuildRequires: libsepol-static >= %{libsepolver}
+BuildRequires: libselinux-devel  >= %{libselinuxver}
 
 %description
 Security-enhanced Linux is a feature of the Linux® kernel and a number
