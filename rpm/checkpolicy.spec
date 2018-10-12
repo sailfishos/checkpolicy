@@ -26,7 +26,7 @@
 Summary:       SELinux policy compiler
 Name:          checkpolicy
 Version:       2.8
-Release:       1%{?dist}
+Release:       1
 License:       GPLv2
 Source:        %{name}-%{version}.tar.bz2
 BuildRequires: gcc
