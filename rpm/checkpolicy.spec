@@ -73,7 +73,7 @@ install test/dispol ${RPM_BUILD_ROOT}%{_bindir}/sedispol
 %doc %{name}/COPYING
 %{_bindir}/checkpolicy
 %{_bindir}/checkmodule
-%{_mandir}/man8/checkpolicy.8.gz
-%{_mandir}/man8/checkmodule.8.gz
+%exclude %{_mandir}/man8/checkpolicy.8.gz
+%exclude %{_mandir}/man8/checkmodule.8.gz
 %{_bindir}/sedismod
 %{_bindir}/sedispol
