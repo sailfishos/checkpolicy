@@ -1,6 +1,6 @@
 # based on work by The Fedora Project (2017)
 # Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -8,10 +8,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included
 # in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
@@ -20,12 +20,12 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-%define libselinuxver 2.8
-%define libsepolver 2.8
+%define libselinuxver 3.0
+%define libsepolver 3.0
 
 Summary:       SELinux policy compiler
 Name:          checkpolicy
-Version:       2.8
+Version:       3.0
 Release:       1
 License:       GPLv2
 Source:        %{name}-%{version}.tar.bz2
@@ -51,7 +51,7 @@ This package contains checkpolicy, the SELinux policy compiler.
 Only required for building policies. 
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%autosetup -p1 -n %{name}-%{version}/upstream
 
 %build
 #make clean
@@ -70,10 +70,12 @@ install test/dismod ${RPM_BUILD_ROOT}%{_bindir}/sedismod
 install test/dispol ${RPM_BUILD_ROOT}%{_bindir}/sedispol
 
 %files
-%doc %{name}/COPYING
+%license %{name}/COPYING
 %{_bindir}/checkpolicy
 %{_bindir}/checkmodule
 %exclude %{_mandir}/man8/checkpolicy.8.gz
+%exclude %{_mandir}/ru/man8/checkpolicy.8.gz
 %exclude %{_mandir}/man8/checkmodule.8.gz
+%exclude %{_mandir}/ru/man8/checkmodule.8.gz
 %{_bindir}/sedismod
 %{_bindir}/sedispol
