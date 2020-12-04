@@ -20,8 +20,8 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-%define libselinuxver 3.0
-%define libsepolver 3.0
+%define libselinuxver 3.1
+%define libsepolver 3.1
 
 Summary:       SELinux policy compiler
 Name:          checkpolicy
@@ -54,18 +54,16 @@ Only required for building policies.
 %autosetup -p1 -n %{name}-%{version}/upstream
 
 %build
-#make clean
-# only build checkpolicy
 cd %{name}
-make LIBDIR="%{_libdir}" CFLAGS="%{optflags}" 
+%make_build LIBDIR="%{_libdir}" CFLAGS="%{optflags}"
 cd test
-make LIBDIR="%{_libdir}" CFLAGS="%{optflags}" 
+%make_build LIBDIR="%{_libdir}" CFLAGS="%{optflags}"
 
 %install
 # only install checkpolicy
 cd %{name}
 mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
-make LIBDIR="%{_libdir}" DESTDIR="${RPM_BUILD_ROOT}" install
+%make_install LIBDIR="%{_libdir}"
 install test/dismod ${RPM_BUILD_ROOT}%{_bindir}/sedismod
 install test/dispol ${RPM_BUILD_ROOT}%{_bindir}/sedispol
 
