@@ -20,12 +20,12 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-%define libselinuxver 3.1
-%define libsepolver 3.1
+%define libselinuxver 3.7
+%define libsepolver 3.7
 
 Summary:       SELinux policy compiler
 Name:          checkpolicy
-Version:       3.0
+Version:       3.7
 Release:       1
 License:       GPLv2
 Source:        %{name}-%{version}.tar.bz2
@@ -34,7 +34,7 @@ BuildRequires: byacc
 BuildRequires: bison
 BuildRequires: flex
 BuildRequires: libsepol-static >= %{libsepolver}
-BuildRequires: libselinux-devel  >= %{libselinuxver}
+BuildRequires: libselinux-devel >= %{libselinuxver}
 
 %description
 Security-enhanced Linux is a feature of the Linux® kernel and a number
@@ -68,12 +68,10 @@ install test/dismod ${RPM_BUILD_ROOT}%{_bindir}/sedismod
 install test/dispol ${RPM_BUILD_ROOT}%{_bindir}/sedispol
 
 %files
-%license %{name}/COPYING
+%license LICENSE
 %{_bindir}/checkpolicy
 %{_bindir}/checkmodule
 %exclude %{_mandir}/man8/checkpolicy.8.gz
-%exclude %{_mandir}/ru/man8/checkpolicy.8.gz
 %exclude %{_mandir}/man8/checkmodule.8.gz
-%exclude %{_mandir}/ru/man8/checkmodule.8.gz
 %{_bindir}/sedismod
 %{_bindir}/sedispol
